@@ -14,8 +14,7 @@ class NameIndex
 
   def self.create_index(names)
     names.sort.group_by {|name|
-      index_kana = NAME_INDEX_HASH.find(['Others']) {|_, value| value.include?(name[0])}
-      index_kana[0]
+      NAME_INDEX_HASH.find(['Others']) {|_, value| value.include?(name[0])}.first
     }.to_a
   end
 end
